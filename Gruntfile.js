@@ -106,20 +106,16 @@ module.exports = function(grunt) {
 			},
 			less: {
 				files: ['less/**/*.less'],
-				tasks: ['less:dev', 'dev']
+				tasks: ['less:dev']
 			},
 			concat: {
-				files: ['js/*.js'],
-				tasks: ['concat:js', 'dev']
-			},
-			theme: {
-				files: ['layouts/**'],
-				tasks: 'dev'
+				files: ['js/**/*.js'],
+				tasks: ['concat:js']
 			},
 			hugo: {
-				files: ['config.toml'],
-				tasks: 'dev'
-			}
+				files: ['static/**', 'layouts/**', 'config.toml'],
+				tasks: 'hugo:dev'
+			},
 		},
 
 		// Create live site
