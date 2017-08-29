@@ -1,0 +1,14 @@
+.DS_Store
+/_archives
+
+# bower
+vendor/
+
+# node
+node_modules/
+
+# hugo
+build/
+static/css/
+static/js/
+static/lib/

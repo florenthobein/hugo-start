@@ -1,0 +1,20 @@
+{
+	"name": "hugo-start",
+	"authors": [
+		"Florent Hobein <florent@cometapp.io>"
+	],
+	"description": "Simple hugo boilerplate using bower, LESS & grunt",
+	"license": "MIT",
+	"private": false,
+	"directory": "assets/lib/",
+	"ignore": [
+		"**/.*",
+		"**/_*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests",
+		"lib"
+	],
+	"dependencies": {}
+}
