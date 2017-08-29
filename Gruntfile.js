@@ -160,12 +160,6 @@ module.exports = function(grunt) {
 	});
 
 	// Register tasks
-	grunt.registerTask('init', [
-		'less:dev',
-		'concat:js',
-		'copy:vendor',
-		'wiredep'
-	]);
 	grunt.registerTask('dev', [
 		'less:dev',
 		'concat:js',

@@ -15,14 +15,18 @@ Simple [hugo](https://gohugo.io/) backbone using [bower](https://bower.io/) for 
 ## Installation
 
 ```
+git clone git@github.com:florenthobein/hugo-start.git hugo_start && \
+cd hugo_start && \
 npm install
 ```
 
 ## Usage
 
 ```
-grunt init && grunt
+grunt
 ```
+
+Your website will be accessible at `http://localhost:9000`.
 
 ## Deployment
 
