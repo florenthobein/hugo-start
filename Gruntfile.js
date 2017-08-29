@@ -13,7 +13,8 @@ module.exports = function(grunt) {
 		// Clean
 		clean: {
 			assets: ['static/css', 'static/js'],
-			dist: ['build/dist']
+			dev: ['build/dev'],
+			dist: ['build/dist'],
 		},
 
 		// Compiles LESS files to CSS
@@ -26,7 +27,7 @@ module.exports = function(grunt) {
 			dist: {
 				paths: ['less/'],
 				src: ['less/main.less'],
-				dest: 'static/css/<%= name_asset %>.min.<%= pkg.version %>.css',
+				dest: 'static/css/<%= name_asset %>.<%= pkg.version %>.min.css',
 				options: {
 					plugins: [
 						new (require('less-plugin-autoprefix'))({
@@ -42,7 +43,7 @@ module.exports = function(grunt) {
 			options: {
 				stripBanners: true,
 				banner: '/* <%= pkg.name %> v<%= pkg.version %> | ' +
-					'<%= pkg.author %> */\n',
+					'<%= pkg.author.name %> */\n',
 			},
 			js: {
 				src: ['js/**/*.js'],
@@ -129,6 +130,11 @@ module.exports = function(grunt) {
 					livereload: true
 				}
 			}
+		},
+
+		// Unit tests
+		nodeunit: {
+			tests: ['tests/*_test.js']
 		}
 	};
 
@@ -160,7 +166,15 @@ module.exports = function(grunt) {
 	});
 
 	// Register tasks
+	grunt.registerTask('test', [
+		'clean',
+		'dev',
+		'dist',
+		'nodeunit'
+	]);
 	grunt.registerTask('dev', [
+		'clean:assets',
+		'clean:dev',
 		'less:dev',
 		'concat:js',
 		'copy:vendor',
@@ -177,7 +191,7 @@ module.exports = function(grunt) {
 	]);
 	grunt.registerTask('bump', 'Bump the package', function(param) {
 		param = param || 'patch';
-		grunt.task.run('semver:release:bump:'+param);
+		grunt.task.run('semver:release:bump:' + param);
 	});
 	grunt.registerTask('default', [
 		'connect', 'watch'

@@ -1,6 +1,8 @@
 Hugo Start
 ===
 
+[![Build Status](https://travis-ci.org/florenthobein/hugo-start.svg?branch=master)](https://travis-ci.org/florenthobein/hugo-start)
+
 Simple [hugo](https://gohugo.io/) backbone using [bower](https://bower.io/) for public library management, [LESS](http://lesscss.org/) as a style preprocessor & the [grunt](https://gruntjs.com/) task runner
 
 ## Features
