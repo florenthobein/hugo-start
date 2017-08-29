@@ -1,13 +1,15 @@
+sudo: required
+dist: trusty
 language: node_js
-os: osx
 
-# install grunt & hugo
-before_script:
-  - brew update
-  - brew install hugo
+# install hugo & grunt
+install:
+  - wget -O /tmp/hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.26/hugo_0.26_Linux-64bit.deb
+  - sudo dpkg -i /tmp/hugo.deb
   - npm install grunt-cli -g
+  - npm install
 
 # test nodes vesions
 node_js:
-  - "4.0"
-  - "0.12"
+  - "5.5"
+  - "4.2"
